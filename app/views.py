@@ -27,11 +27,11 @@ def index():
             filename = file_upload.filename
             
             # Resize and save the uploaded image
-            uploaded_image = Image.open(file_upload).resize((250,160))
+            uploaded_image = Image.open(file_upload).resize((1250,800))
             uploaded_image.save(os.path.join(app.config['INITIAL_FILE_UPLOADS'], 'image.jpg'))
 
             # Resize and save the original image to ensure both uploaded and original matches in size
-            original_image = Image.open(os.path.join(app.config['EXISTNG_FILE'], 'image.jpeg')).resize((250,160))
+            original_image = Image.open(os.path.join(app.config['EXISTNG_FILE'], 'image.jpg')).resize((1250,800))
             original_image.save(os.path.join(app.config['EXISTNG_FILE'], 'image.jpg'))
 
             # Read uploaded and original image as array
@@ -67,4 +67,4 @@ def index():
        
 # Main function
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
